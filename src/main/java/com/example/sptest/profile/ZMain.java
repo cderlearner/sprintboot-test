@@ -8,7 +8,9 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Author: linjx
@@ -41,6 +43,10 @@ public class ZMain {
         System.err.println(jdConfig);
         System.err.println(jdKmopen);
 
-        System.out.println(Arrays.toString(applicationContext.getEnvironment().getActiveProfiles()));
+        Set<String> stringSet = Stream.of(applicationContext.getEnvironment().getActiveProfiles()).collect(Collectors.toSet());
+        System.out.println(stringSet);
+        if (stringSet.contains("jd-testing")) {
+            System.out.println("profile:" + " jd-testing");
+        }
     }
 }
