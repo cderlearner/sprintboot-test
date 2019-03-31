@@ -8,6 +8,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
+import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -36,6 +38,13 @@ public class ZMain {
     @Autowired
     private ApplicationContext applicationContext;
 
+    private Set<String> profiles = Collections.emptySet();
+
+    @PostConstruct
+    protected void init() {
+        profiles = Stream.of(applicationContext.getEnvironment().getActiveProfiles()).collect(Collectors.toSet());
+    }
+
     @GetMapping("/")
     public void test() {
         hello.hi();
@@ -43,10 +52,11 @@ public class ZMain {
         System.err.println(jdConfig);
         System.err.println(jdKmopen);
 
-        Set<String> stringSet = Stream.of(applicationContext.getEnvironment().getActiveProfiles()).collect(Collectors.toSet());
-        System.out.println(stringSet);
-        if (stringSet.contains("jd-testing")) {
-            System.out.println("profile:" + " jd-testing");
-        }
+//        Set<String> stringSet = Stream.of(applicationContext.getEnvironment().getActiveProfiles()).collect(Collectors.toSet());
+//        System.out.println(stringSet);
+//        if (stringSet.contains("jd-testing")) {
+//            System.out.println("profile:" + " jd-testing");
+//        }
+        System.out.println("profiles: " + profiles);
     }
 }
