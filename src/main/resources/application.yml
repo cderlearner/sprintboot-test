@@ -1,0 +1,29 @@
+spring:
+  profiles: online
+kmopen:
+  jd-app-id: 'aa'
+jd-cipher:
+  aes-key: '2323'
+  aes-iv: '11'
+---
+spring:
+  profiles: sandbox
+kmopen:
+  jd-app-id: 'bb'
+jd-cipher:
+  aes-key: '111'
+  aes-iv: 'sdds'
+---
+spring:
+  profiles: jd-testing
+jd:
+  server-url: 'xxxx'
+  app-key: 'xx'
+  app-secret: 'xxx'
+  access-token: 'xxx'
+  oauth2-url: 'https://xxx'
+  token-url: 'https://xxx'
+  callback-url: 'https://xxx'
+  sku: '100002585028'
+  unit-price: '0.1000'
+  rsa-pub-key: '1'
