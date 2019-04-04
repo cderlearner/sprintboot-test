@@ -33,7 +33,7 @@ public class ZMain {
         @GetMapping("/")
         public void exec() {
             CanOpenRequest req = new CanOpenRequest();
-            req.setAppId("1");
+            req.setAppId("2");
             inletService.canOpen(req);
         }
 

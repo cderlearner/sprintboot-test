@@ -22,10 +22,13 @@ public class InletServiceImpl implements InletService {
     private NoopInletService partnerNoop;
     @Autowired
     private PartnerYJY partnerYjyg;
+    @Autowired
+    private PartnerTest partnerTest;
 
     @PostConstruct
     protected void init() {
         appToPartner.put(partnerYjyg.getOnlineAppId(), partnerYjyg);
+        appToPartner.put(partnerTest.getOnlineAppId(), partnerTest);
     }
 
     @Override
