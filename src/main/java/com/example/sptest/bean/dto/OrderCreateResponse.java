@@ -1,5 +1,6 @@
 package com.example.sptest.bean.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -7,6 +8,7 @@ import lombok.Data;
  * Date: 2019/3/28
  */
 @Data
+@Builder
 public class OrderCreateResponse extends Pojo {
     private String orderNo;
     private String outOrderNo;

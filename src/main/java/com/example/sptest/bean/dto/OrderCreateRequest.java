@@ -1,5 +1,6 @@
 package com.example.sptest.bean.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.*;
@@ -9,7 +10,8 @@ import javax.validation.constraints.*;
  * Date: 2019/3/28
  */
 @Data
-public class OrderCreateRequest {
+@Builder
+public class OrderCreateRequest extends Pojo{
     private String appId;
 
     @NotNull
