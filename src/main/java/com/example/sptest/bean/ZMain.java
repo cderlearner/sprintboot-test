@@ -2,6 +2,8 @@ package com.example.sptest.bean;
 
 import com.example.sptest.bean.dto.CanOpenRequest;
 import com.example.sptest.bean.service.InletServiceImpl;
+import com.example.sptest.bean.service.PartnerXC;
+import com.example.sptest.bean.service.PartnerYJY;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -30,11 +32,18 @@ public class ZMain {
         @Autowired
         private InletServiceImpl inletService;
 
+        @Autowired
+        private PartnerYJY partnerYJY;
+        @Autowired
+        private PartnerXC partnerXC;
+
         @GetMapping("/")
         public void exec() {
             CanOpenRequest req = new CanOpenRequest();
             req.setAppId("2");
             inletService.canOpen(req);
+
+            partnerYJY.getOnlineAppId();
         }
 
         @GetMapping("/noop")
