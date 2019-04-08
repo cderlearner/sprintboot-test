@@ -12,6 +12,6 @@ public class MemberEventListenerImpl2 implements MemberEventListener{
     @Override
     public void onMemberCreateByPhoneNoEvent(MemberCreateByPhoneNoEvent event) {
         System.out.println("2:"+ event);
-        System.out.println(Thread.currentThread().getName());
+        throw new RuntimeException("---------------");
     }
 }
