@@ -14,7 +14,6 @@ public class PartnerYJY extends Partner{
 
     @Override
     public String getOnlineAppId() {
-        System.out.println(partnerXC.getOnlineAppId());
         return "yjy";
     }
 

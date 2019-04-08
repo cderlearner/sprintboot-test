@@ -45,9 +45,9 @@ public abstract class Partner implements InletService {
         return null;
     }
 
-    abstract String getOnlineAppId();
+    public abstract String getOnlineAppId();
 
-    abstract String getSandboxAppId();
+    public abstract String getSandboxAppId();
 
 
 

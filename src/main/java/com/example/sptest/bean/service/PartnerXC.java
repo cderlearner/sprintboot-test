@@ -13,12 +13,12 @@ public class PartnerXC extends Partner{
     private PartnerYJY partnerYJY;
 
     @Override
-    String getOnlineAppId() {
+    public String getOnlineAppId() {
         return "xc";
     }
 
     @Override
-    String getSandboxAppId() {
+    public String getSandboxAppId() {
         return "xc";
     }
 }

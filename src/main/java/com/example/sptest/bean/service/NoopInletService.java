@@ -52,12 +52,12 @@ public class NoopInletService extends Partner {
     }
 
     @Override
-    String getOnlineAppId() {
+    public String getOnlineAppId() {
         return Strings.EMPTY;
     }
 
     @Override
-    String getSandboxAppId() {
+    public String getSandboxAppId() {
         return Strings.EMPTY;
     }
 }

@@ -17,12 +17,12 @@ public class PartnerTest extends Partner{
     }
 
     @Override
-    String getOnlineAppId() {
-        return "2";
+    public String getOnlineAppId() {
+        return "test";
     }
 
     @Override
-    String getSandboxAppId() {
-        return null;
+    public String getSandboxAppId() {
+        return "test";
     }
 }
