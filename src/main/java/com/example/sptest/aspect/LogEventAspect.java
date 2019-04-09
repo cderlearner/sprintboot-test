@@ -53,7 +53,7 @@ class LogEventAspect {
             throw e;
         } finally {
             eventDao.create(model);
-            System.out.println("created");
+            System.out.println("created:" + model.toJson());
         }
     }
 }
