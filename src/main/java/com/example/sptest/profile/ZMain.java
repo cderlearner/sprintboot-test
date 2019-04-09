@@ -1,11 +1,15 @@
 package com.example.sptest.profile;
 
+import com.example.sptest.bean.dto.CanOpenRequest;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
@@ -20,6 +24,7 @@ import java.util.stream.Stream;
  */
 @RestController
 @SpringBootApplication
+@Slf4j
 public class ZMain {
 
     public static void main(String[] args) {
@@ -27,8 +32,8 @@ public class ZMain {
         //context.getEnvironment().addActiveProfile("jd-testing");
     }
 
-    @Autowired
-    private Hello hello;
+//    @Autowired
+//    private Hello hello;
     @Autowired
     private JDCipherConfig jdCipherConfig;
     @Autowired
@@ -47,7 +52,7 @@ public class ZMain {
 
     @GetMapping("/")
     public void test() {
-        hello.hi();
+        //hello.hi();
         System.err.println(jdCipherConfig);
         System.err.println(jdConfig);
         System.err.println(jdKmopen);
@@ -58,5 +63,16 @@ public class ZMain {
 //            System.out.println("profile:" + " jd-testing");
 //        }
         System.out.println("profiles: " + profiles);
+    }
+
+    @PostMapping("/pp")
+    public String test2(@RequestBody CanOpenRequest request) {
+        try {
+            Thread.sleep(15000l);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        log.info(request.toString());
+        return request.toJson();
     }
 }

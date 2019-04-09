@@ -1,5 +1,6 @@
 package com.example.sptest.bean.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -11,6 +12,7 @@ import javax.validation.constraints.Pattern;
  */
 @Data
 public class CanOpenRequest extends Pojo {
+    @JsonProperty("appId")
     private String appId;
     @NotNull
     @Pattern(regexp = "^\\+0086[0-9]{11}$")
