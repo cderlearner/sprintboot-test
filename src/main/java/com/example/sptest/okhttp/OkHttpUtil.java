@@ -1,4 +1,4 @@
-package com.example.sptest.okkhttp;
+package com.example.sptest.okhttp;
 
 import com.example.sptest.bean.dto.CanOpenRequest;
 import com.fasterxml.jackson.databind.JsonNode;
