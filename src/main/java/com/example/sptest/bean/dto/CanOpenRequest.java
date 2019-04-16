@@ -17,4 +17,16 @@ public class CanOpenRequest extends Pojo {
     @NotNull
     @Pattern(regexp = "^\\+0086[0-9]{11}$")
     private String mobile;
+
+    public static void main(String[] args) {
+        CanOpenRequest req = new CanOpenRequest();
+        req.setAppId("1");
+        req.setMobile("1");
+        Pojo pojo = req;
+
+        Class<? extends Pojo> clazz = CanOpenRequest.class;
+
+        CanOpenRequest req2 = (CanOpenRequest) clazz.cast(pojo);
+        System.out.println(req2);
+    }
 }
