@@ -24,9 +24,7 @@ public class CanOpenRequest extends Pojo {
         req.setMobile("1");
         Pojo pojo = req;
 
-        Class<? extends Pojo> clazz = CanOpenRequest.class;
-
-        CanOpenRequest req2 = (CanOpenRequest) clazz.cast(pojo);
+        CanOpenRequest req2 = CanOpenRequest.class.cast(pojo);
         System.out.println(req2);
     }
 }
