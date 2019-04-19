@@ -1,5 +1,6 @@
 package com.example.sptest;
 
+import com.example.sptest.bean.dto.YJYRefundOrderRes;
 import org.junit.Test;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -27,6 +28,15 @@ public class TestUnit {
     public void test2() {
         DispatcherServlet servlet = new DispatcherServlet();
         servlet.getServletConfig();
+    }
+
+    @Test
+    public void test3() {
+        YJYRefundOrderRes res = null;
+        System.out.println(res instanceof YJYRefundOrderRes);
+
+        res = null;
+        System.err.println(res instanceof YJYRefundOrderRes);
     }
 
 }
