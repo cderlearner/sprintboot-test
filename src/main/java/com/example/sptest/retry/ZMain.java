@@ -29,4 +29,9 @@ public class ZMain {
     public void test() {
         retryService.test();
     }
+
+    @GetMapping("/j")
+    public String test2() {
+        return "<{\"data\":true,\"status\":true}";
+    }
 }
