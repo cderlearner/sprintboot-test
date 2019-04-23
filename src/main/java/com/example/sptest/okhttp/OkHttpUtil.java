@@ -58,6 +58,7 @@ public class OkHttpUtil {
     @Nullable
     public static JsonNode doRequest(Request request){
         try (Response response = CLIENT.newCall(request).execute()) {
+            System.out.println(response.body().string());
             InputStream inputStream = Objects.requireNonNull(response.body()).byteStream();
             return objectMapper.readTree(inputStream);
         } catch (Exception e) {

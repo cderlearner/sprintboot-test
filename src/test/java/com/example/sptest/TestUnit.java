@@ -5,10 +5,15 @@ import com.example.sptest.okhttp.OkHttpUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.Request;
+import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -65,4 +70,11 @@ public class TestUnit {
         System.out.println(jsonNode);
     }
 
+    @Test
+    public void test6() {
+        List<Integer> list = new ArrayList<>();
+        System.out.println(!CollectionUtils.isEmpty(Collections.emptyList()));
+        System.out.println(!CollectionUtils.isEmpty(Arrays.asList(1)));
+
+    }
 }
