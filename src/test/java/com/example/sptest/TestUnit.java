@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -75,6 +76,10 @@ public class TestUnit {
         List<Integer> list = new ArrayList<>();
         System.out.println(!CollectionUtils.isEmpty(Collections.emptyList()));
         System.out.println(!CollectionUtils.isEmpty(Arrays.asList(1)));
+    }
 
+    @Test
+    public void test7() {
+        System.out.println(TimeUnit.MILLISECONDS.toNanos(1000));
     }
 }

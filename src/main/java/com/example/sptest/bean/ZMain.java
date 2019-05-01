@@ -44,6 +44,7 @@ public class ZMain {
 //            inletService.canOpen(req);
 
             partners.forEach(partner -> System.out.println(partner.getOnlineAppId()));
+            System.out.println("hello world");
         }
 
         @GetMapping("/noop")
@@ -59,7 +60,7 @@ public class ZMain {
                     .mobile("+008613810522372")
                     .outOrderNo("222")
                     .openTime("2019-11-11 03:10:11")
-                    .vipType("SVIP")
+                    .vipType("INSTABOOK")
                     .build();
             System.out.println(validator.validate(request));
         }

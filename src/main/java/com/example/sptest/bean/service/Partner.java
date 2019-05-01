@@ -12,6 +12,8 @@ import javax.validation.Validator;
  */
 public abstract class Partner implements InletService {
     @Autowired
+    private Partner self;
+    @Autowired
     private Validator validator;
 
     public CanOpenResponse canOpen(CanOpenRequest request) {

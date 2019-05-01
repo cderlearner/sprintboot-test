@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class PartnerTest extends Partner{
+
     @Override
     public CanOpenResponse canOpen(CanOpenRequest request) {
         System.out.println("hello wolrd !");

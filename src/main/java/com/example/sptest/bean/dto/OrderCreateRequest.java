@@ -22,7 +22,7 @@ public class OrderCreateRequest extends Pojo{
     @Pattern(regexp = "^\\+0086[0-9]{11}$")
     private String mobile;
 
-    @Pattern(regexp = "^(SVIP)$")
+    @Pattern(regexp = "^(SVIP|INSTABOOK)$")
     private String vipType = "INSTABOOK";
 
     @NotNull
