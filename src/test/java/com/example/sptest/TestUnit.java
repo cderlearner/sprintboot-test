@@ -26,7 +26,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class TestUnit {
 
     @Test
-    public void test1() throws Exception{
+    public void test1() throws Exception {
         Lock lock = new ReentrantLock();
         lock.lock();
         Condition condition = lock.newCondition();
@@ -45,7 +45,6 @@ public class TestUnit {
     public void test3() {
         YJYRefundOrderRes res = null;
         System.out.println(res instanceof YJYRefundOrderRes);
-
         res = null;
         System.err.println(res instanceof YJYRefundOrderRes);
     }
@@ -81,5 +80,26 @@ public class TestUnit {
     @Test
     public void test7() {
         System.out.println(TimeUnit.MILLISECONDS.toNanos(1000));
+    }
+
+    public static void main(String[] args) {
+        //Bar.INS.f1();
+        //System.out.println(Bar.INS);
+//        System.out.println(Bar.tmp);
+//        LockSupport.parkNanos(TimeUnit.SECONDS.toNanos(2));
+//        System.out.println("2:" + Bar.tmp);
+//        System.out.println("2:" + Bar.tmp);
+//        System.out.println("2:" + Bar.tmp);
+//        System.out.println("2:" + Bar.tmp);
+//        System.out.println("2:" + Bar.tmp);
+//        System.out.println("2:" + Bar.tmp);
+
+        //System.out.println(Bar.tmp2);
+//        Bar.f2();
+//        Bar.f2();
+//        Bar.f2();
+        Bar.f3();
+        Bar.f3();
+        Bar.f3();
     }
 }
