@@ -20,7 +20,7 @@ public class Bar {
         System.out.println("bar");
     }
 
-    private Bar(){
+    public Bar(){
         System.out.println("ba2");
     }
 

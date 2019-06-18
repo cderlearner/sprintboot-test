@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
 
 /**
  * Author: linjx
@@ -82,6 +83,41 @@ public class TestUnit {
         System.out.println(TimeUnit.MILLISECONDS.toNanos(1000));
     }
 
+    @Test
+    public void test8() {
+        List<String> strs = Arrays.asList("1", "2", "3");
+        List strs2 = strs.stream().filter(s -> {
+            if (s.equals("1")) {
+                System.out.println(s + ":1");
+                return true;
+            }
+            return false;
+        }).filter(s -> {
+                    if (s.equals("2")) {
+                        System.out.println(s + ":2");
+                        return true;
+                    }
+                    return false;
+                })
+                .collect(Collectors.toList());
+
+//        System.out.println(strs.stream().filter(s -> {
+//            if (s.equals("1")) {
+//                System.out.println(s + ":1");
+//                return true;
+//            }
+//            return false;
+//        }).collect(Collectors.toList()));
+
+        System.out.println(strs.stream().filter(s -> {
+            if (s.equals("1") || s.equals("2")) {
+                System.out.println(s + ":1");
+                return true;
+            }
+            return false;
+        }).collect(Collectors.toList()));
+    }
+
     public static void main(String[] args) {
         //Bar.INS.f1();
         //System.out.println(Bar.INS);
@@ -98,8 +134,12 @@ public class TestUnit {
 //        Bar.f2();
 //        Bar.f2();
 //        Bar.f2();
-        Bar.f3();
-        Bar.f3();
-        Bar.f3();
+//        Bar.f3();
+//        Bar.f3();
+//        Bar.f3();
+
+
+        new Bar();
+        //new Bar();
     }
 }
