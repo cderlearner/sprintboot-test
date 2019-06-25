@@ -118,6 +118,20 @@ public class TestUnit {
         }).collect(Collectors.toList()));
     }
 
+    Runnable r1 = () -> { System.out.println(this); };
+    Runnable r2 = () -> { System.out.println(toString()); };
+
+    @Override
+    public String toString() {
+        return "Hello World!";
+    }
+
+    @Test
+    public void test9() {
+        new TestUnit().r1.run();
+        new TestUnit().r2.run();
+    }
+
     public static void main(String[] args) {
         //Bar.INS.f1();
         //System.out.println(Bar.INS);
