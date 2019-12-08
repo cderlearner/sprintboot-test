@@ -75,4 +75,8 @@ public class DateTimeUtil {
     public static String epochMillisToDefaultZoneTime(long epochMillis) {
         return datetimeFormatter.format(getLocalDateTime(epochMillis));
     }
+
+    public static void main(String[] args) {
+        System.out.println(epochMillisToDefaultZoneTime(1518935516745L));
+    }
 }
