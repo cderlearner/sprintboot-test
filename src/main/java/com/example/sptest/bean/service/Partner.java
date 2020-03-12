@@ -11,8 +11,8 @@ import javax.validation.Validator;
  * Date: 2019/3/29
  */
 public abstract class Partner implements InletService {
-    @Autowired
-    private Partner self;
+//    @Autowired
+//    private Partner self;
     @Autowired
     private Validator validator;
 
