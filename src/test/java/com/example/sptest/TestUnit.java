@@ -9,8 +9,10 @@ import com.google.common.collect.Maps;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import okhttp3.Request;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.Test;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpMethod;
@@ -226,6 +228,11 @@ public class TestUnit {
         System.out.println(value);
 
         System.out.println(Test2.MAX_CACHE_SIZE);
+    }
+
+    @Test
+    public void test11() {
+        System.out.println(ExceptionUtils.getStackTrace(new Throwable()));
     }
 }
 
