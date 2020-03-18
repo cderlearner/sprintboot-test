@@ -5,6 +5,7 @@ import com.example.sptest.okhttp.OkHttpUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.common.base.Joiner;
 import com.google.common.collect.Maps;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,6 +14,7 @@ import lombok.ToString;
 import okhttp3.Request;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpMethod;
@@ -233,6 +235,41 @@ public class TestUnit {
     @Test
     public void test11() {
         System.out.println(ExceptionUtils.getStackTrace(new Throwable()));
+    }
+
+    @Test
+    public void test12() {
+        List<Integer> ids = Lists.newArrayList(1, 2);
+
+        Iterator<?> itr = ids.iterator();
+        for (Iterator<?> it = itr; it.hasNext(); ) {
+            Object obj = it.next();
+            System.out.println(obj);
+        }
+    }
+
+    @Test
+    public void test13() {
+        String userId = "1";
+        String clientId = "2";
+        String time = "345";
+        String redisKey = Joiner.on(":").join(Arrays.asList(userId, clientId, time));
+        System.out.println(redisKey);
+    }
+
+    @Test
+    public void test14() {
+        Map<String, String> m = new HashMap<>();
+        m.put("1", "2");
+        m.put("2", "1");
+
+
+        Map<String, Boolean> m2 = m
+                .entrySet()
+                .stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, t -> Objects.equals(t.getValue(), "1")));
+
+        System.out.println(m2);
     }
 }
 
