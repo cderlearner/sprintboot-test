@@ -271,5 +271,42 @@ public class TestUnit {
 
         System.out.println(m2);
     }
+
+    /**
+     * 泛型测试
+     */
+    @Test
+    public void test15() {
+        //List<String>[] ls = new ArrayList<String>[10];
+        List<String>[] ls = new ArrayList[10];
+    }
+
+    /**
+     * see https://blog.csdn.net/qq_37960603/article/details/82682104
+     */
+    @Test
+    public void test16() {
+        List<String>[] lsa = new List[10]; // Not really allowed.
+        Object o = lsa;
+        Object[] oa = (Object[]) o;
+        List<Integer> li = new ArrayList<Integer>();
+        li.add(new Integer(3));
+        oa[1] = li; // Unsound, but passes run time store check
+        String s = lsa[1].get(0);
+    }
+
+    @Test
+    public void test17() {
+        List<?>[] lsa = new List<?>[10]; // OK, array of unbounded wildcard type.
+        Object o = lsa;
+        Object[] oa = (Object[]) o;
+        List<Integer> li = new ArrayList<Integer>();
+        li.add(new Integer(3));
+        oa[1] = li; // Correct.
+
+        // 由于通配符的原因 最后取出的数据要做显式的转换的
+        String s = (String) lsa[1].get(0); // Run time error, but cast is explicit.
+        System.out.println(s);
+    }
 }
 
