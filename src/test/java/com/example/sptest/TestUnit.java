@@ -308,5 +308,11 @@ public class TestUnit {
         String s = (String) lsa[1].get(0); // Run time error, but cast is explicit.
         System.out.println(s);
     }
+
+    @Test
+    public void test18() {
+        List<Long> list = Arrays.asList(1l, 2l, 3l);
+        System.out.println(list.stream().anyMatch(u -> u == 1l));
+    }
 }
 
