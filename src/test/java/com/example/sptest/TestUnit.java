@@ -6,11 +6,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.base.Joiner;
+import com.google.common.collect.Iterators;
 import com.google.common.collect.Maps;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import okhttp3.Request;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
@@ -313,6 +312,56 @@ public class TestUnit {
     public void test18() {
         List<Long> list = Arrays.asList(1l, 2l, 3l);
         System.out.println(list.stream().anyMatch(u -> u == 1l));
+    }
+
+    @Test
+    public void test19() {
+        List<String> list = new ArrayList();
+        list.add("abc");
+        list.add("abcd");
+        list.add("abcde");
+        list.add("ABC");
+        list.add("ABCD");
+
+        Iterator<String> iterator = list.iterator();
+        while (iterator.hasNext()) {
+            String item = iterator.next();
+            //System.out.println(iterator.next());
+            if (item.equals("ABCD")) {
+                list.remove(item);
+                System.out.println("remove");
+
+            } else {
+                System.out.println(item);
+            }
+        }
+        System.out.println(list.toString());
+    }
+
+    @Test
+    public void test20() {
+        List<String> list = new ArrayList();
+        list.add("abc");
+        list.add("abcd");
+        list.add("abcde");
+        list.add("ABC");
+        list.add("ABCD");
+
+//        Iterator<String> iterator = Iterators.cycle(list);
+//
+//        while (iterator.hasNext()) {
+//            String item = iterator.next();
+//            //System.out.println(iterator.next());
+//            if (item.equals("ABCD")) {
+//                iterator.remove();
+//                System.out.println("remove");
+//
+//            } else {
+//                System.out.println(item);
+//            }
+//        }
+//        System.out.println(list.toString());
+
     }
 }
 
