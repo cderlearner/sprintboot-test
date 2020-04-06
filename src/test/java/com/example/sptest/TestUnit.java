@@ -12,6 +12,7 @@ import lombok.Getter;
 import lombok.Setter;
 import okhttp3.Request;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
@@ -363,5 +364,23 @@ public class TestUnit {
 //        System.out.println(list.toString());
 
     }
+
+    private static long ip2Long(String ip) {
+        String[] segs = StringUtils.split(ip, '.');
+        long result = 0L;
+        result |= Integer.parseInt(segs[0]) << 24;
+        result |= Integer.parseInt(segs[1]) << 16;
+        result |= Integer.parseInt(segs[2]) << 8;
+        result |= Integer.parseInt(segs[3]);
+        return result;
+    }
+
+    @Test
+    public void test21() {
+        System.out.println(ip2Long("127.0.0.1"));
+        System.out.println(ip2Long("127.0.0.2"));
+
+    }
+
 }
 
