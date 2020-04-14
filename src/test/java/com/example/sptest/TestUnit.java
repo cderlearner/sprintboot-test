@@ -23,6 +23,9 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
@@ -380,6 +383,13 @@ public class TestUnit {
         System.out.println(ip2Long("127.0.0.1"));
         System.out.println(ip2Long("127.0.0.2"));
 
+    }
+
+    @Test
+    public void test22() {
+        LocalDateTime tdt = LocalDateTime.of(LocalDate.now(), LocalTime.of(4, 0));
+        LocalDateTime ndt = LocalDateTime.now();
+        System.out.println(ndt.isAfter(tdt));
     }
 
 }

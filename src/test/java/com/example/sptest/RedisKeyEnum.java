@@ -22,7 +22,7 @@ public enum RedisKeyEnum {
      */
     FOLLOWERS_LOCK("followers:lock", true, 2),
 
-    DAU_SYNC_FIRST("dau_sync_first", true, 24 * 60 * 60),
+    DAU_SYNC_FIRST("dau_sync_first", false, 24 * 60 * 60),
     ;
 
     public static final char KEY_SEP = ':';

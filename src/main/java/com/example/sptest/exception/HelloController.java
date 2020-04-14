@@ -5,7 +5,9 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,6 +44,12 @@ public class HelloController {
             System.out.println("22222222222222");
             System.out.println(testBeanAt.id);
         }
+    }
+
+    @RequestMapping("/bool/test")
+    public void test(Model model, @RequestParam(required = false, name = "flag", defaultValue = "0") Boolean flag) {
+        System.out.println(flag);
+        //return model.addAttribute("flag", "flag");
     }
 
     @Setter
