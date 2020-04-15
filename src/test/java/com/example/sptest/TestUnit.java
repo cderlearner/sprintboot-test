@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.ZoneOffset;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
@@ -387,8 +388,16 @@ public class TestUnit {
 
     @Test
     public void test22() {
-        LocalDateTime tdt = LocalDateTime.of(LocalDate.now(), LocalTime.of(4, 0));
+
+        LocalDateTime tdt = LocalDateTime.of(LocalDate.now(), LocalTime.of(16, 0));
+
+        long mtime = tdt.toInstant(ZoneOffset.of("+8")).toEpochMilli();
+        System.out.println(mtime/1000);
+
         LocalDateTime ndt = LocalDateTime.now();
+        long mtime2 = ndt.toInstant(ZoneOffset.of("+8")).toEpochMilli();
+        System.out.println(mtime2/1000);
+
         System.out.println(ndt.isAfter(tdt));
     }
 
