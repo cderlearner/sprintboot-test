@@ -392,13 +392,40 @@ public class TestUnit {
         LocalDateTime tdt = LocalDateTime.of(LocalDate.now(), LocalTime.of(16, 0));
 
         long mtime = tdt.toInstant(ZoneOffset.of("+8")).toEpochMilli();
-        System.out.println(mtime/1000);
+        System.out.println(mtime / 1000);
 
         LocalDateTime ndt = LocalDateTime.now();
         long mtime2 = ndt.toInstant(ZoneOffset.of("+8")).toEpochMilli();
-        System.out.println(mtime2/1000);
+        System.out.println(mtime2 / 1000);
 
         System.out.println(ndt.isAfter(tdt));
+    }
+
+    @Test
+    public void test23() throws Exception {
+        Thread a = new Thread(() -> {
+            Thread th = Thread.currentThread();
+            while (true) {
+                if (th.isInterrupted()) {
+                    System.out.println("线程退出");
+                    break;
+                }
+                // 省略业务代码无数
+                System.out.println("hhhh");
+                try {
+                    Thread.sleep(5000L);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    e.printStackTrace();
+                }
+            }
+        });
+        a.start();
+
+        Thread.sleep(100L);
+        a.interrupt();
+
+        Thread.sleep(60 * 1000L * 10);
     }
 
 }
