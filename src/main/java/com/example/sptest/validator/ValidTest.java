@@ -1,7 +1,5 @@
 package com.example.sptest.validator;
 
-import org.springframework.util.StopWatch;
-
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -13,34 +11,40 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
-public class StudentTest implements Serializable {
+public class ValidTest implements Serializable {
 
     public static void main(String[] args) {
-        Student xiaoming = getBean();
-
-        StopWatch watch = new StopWatch();
-        watch.start();
-        for (int i = 0; i < 100000; i ++) {
-            List<String> validate = validate(xiaoming);
-        }
-        watch.stop();
-
-        System.out.println(watch.getTotalTimeMillis());
-
-
-        watch = new StopWatch();
-        watch.start();
-        for (int i = 0; i < 1000000; i ++) {
-            List<String> validate = validate(xiaoming);
-        }
-        watch.stop();
-
-        System.out.println(watch.getTotalTimeMillis());
+//        Student xiaoming = getBean();
+//
+//        StopWatch watch = new StopWatch();
+//        watch.start();
+//        for (int i = 0; i < 100000; i ++) {
+//            List<String> validate = validate(xiaoming);
+//        }
+//        watch.stop();
+//
+//        System.out.println(watch.getTotalTimeMillis());
+//
+//
+//        watch = new StopWatch();
+//        watch.start();
+//        for (int i = 0; i < 1000000; i ++) {
+//            List<String> validate = validate(xiaoming);
+//        }
+//        watch.stop();
+//
+//        System.out.println(watch.getTotalTimeMillis());
 
 //        validate.forEach(row -> {
 //            System.out.println(row);
 //
 //        });
+
+        List<String> validate = validate(getBean());
+        validate.forEach(s -> System.out.println(s));
+
+        validate = validate(getTeacher());
+        validate.forEach(s -> System.out.println(s));
     }
 
     private static Student getBean() {
@@ -52,6 +56,13 @@ public class StudentTest implements Serializable {
         bean.setWeight(new BigDecimal(30));
         bean.setEmail("xiaogangfan163.com");
         return bean;
+    }
+
+    private static Teacher getTeacher() {
+        Teacher teacher = new Teacher();
+        teacher.setName(null);
+        teacher.setUserId(1L);
+        return teacher;
     }
 
     private static final ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
